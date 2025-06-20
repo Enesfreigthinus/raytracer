@@ -1,0 +1,204 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+ 97.97    506.94   506.94  5002415   101.34   101.34  ray_color(Ray const&, World const&)
+  1.73    515.91     8.97                             try_insert(Sphere&&)
+  0.15    516.68     0.77 21409662     0.04     0.04  double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul> >(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&)
+  0.05    516.95     0.27                             std::thread::_State_impl<std::thread::_Invoker<std::tuple<main::{lambda(int)#2}, unsigned int> > >::_M_run()
+  0.04    517.17     0.22  2991231     0.07     0.07  hsv_to_rgb(double, double, double)
+  0.04    517.36     0.19    66740     2.85     2.85  std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>::_M_gen_rand()
+  0.01    517.43     0.07                             _init
+  0.00    517.43     0.00     4237     0.00     0.00  void std::lock<std::mutex, std::mutex>(std::mutex&, std::mutex&)
+  0.00    517.43     0.00     3728     0.00     0.00  void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&)
+  0.00    517.43     0.00       14     0.00     0.00  set_cpu_affinity(int)
+  0.00    517.43     0.00       13     0.00     0.00  void std::vector<Sphere, std::allocator<Sphere> >::_M_realloc_insert<Sphere>(__gnu_cxx::__normal_iterator<Sphere*, std::vector<Sphere, std::allocator<Sphere> > >, Sphere&&)
+  0.00    517.43     0.00        2     0.00     0.00  std::vector<std::thread, std::allocator<std::thread> >::~vector()
+  0.00    517.43     0.00        1     0.00     0.00  std::vector<Vec3, std::allocator<Vec3> >::~vector()
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2024 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.00% of 517.43 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     98.0    0.27  506.94                 std::thread::_State_impl<std::thread::_Invoker<std::tuple<main::{lambda(int)#2}, unsigned int> > >::_M_run() [1]
+              506.94    0.00 5002415/5002415     ray_color(Ray const&, World const&) [2]
+                0.00    0.00       6/14          set_cpu_affinity(int) [17]
+-----------------------------------------------
+              506.94    0.00 5002415/5002415     std::thread::_State_impl<std::thread::_Invoker<std::tuple<main::{lambda(int)#2}, unsigned int> > >::_M_run() [1]
+[2]     98.0  506.94    0.00 5002415         ray_color(Ray const&, World const&) [2]
+-----------------------------------------------
+                             2958550             try_insert(Sphere&&) [3]
+[3]      2.0    8.97    1.18       0+2958550 try_insert(Sphere&&) [3]
+                0.77    0.19 21409662/21409662     double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul> >(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&) [4]
+                0.22    0.00 2991231/2991231     hsv_to_rgb(double, double, double) [5]
+                0.00    0.00    4237/4237        void std::lock<std::mutex, std::mutex>(std::mutex&, std::mutex&) [15]
+                0.00    0.00    3728/3728        void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) [16]
+                0.00    0.00      13/13          void std::vector<Sphere, std::allocator<Sphere> >::_M_realloc_insert<Sphere>(__gnu_cxx::__normal_iterator<Sphere*, std::vector<Sphere, std::allocator<Sphere> > >, Sphere&&) [18]
+                0.00    0.00       8/14          set_cpu_affinity(int) [17]
+                             2958550             try_insert(Sphere&&) [3]
+-----------------------------------------------
+                0.77    0.19 21409662/21409662     try_insert(Sphere&&) [3]
+[4]      0.2    0.77    0.19 21409662         double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul> >(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&) [4]
+                0.19    0.00   66740/66740       std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>::_M_gen_rand() [6]
+-----------------------------------------------
+                0.22    0.00 2991231/2991231     try_insert(Sphere&&) [3]
+[5]      0.0    0.22    0.00 2991231         hsv_to_rgb(double, double, double) [5]
+-----------------------------------------------
+                0.19    0.00   66740/66740       double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul> >(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&) [4]
+[6]      0.0    0.19    0.00   66740         std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>::_M_gen_rand() [6]
+-----------------------------------------------
+                                                 <spontaneous>
+[7]      0.0    0.07    0.00                 _init [7]
+-----------------------------------------------
+                0.00    0.00    4237/4237        try_insert(Sphere&&) [3]
+[15]     0.0    0.00    0.00    4237         void std::lock<std::mutex, std::mutex>(std::mutex&, std::mutex&) [15]
+-----------------------------------------------
+                0.00    0.00    3728/3728        try_insert(Sphere&&) [3]
+[16]     0.0    0.00    0.00    3728         void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) [16]
+-----------------------------------------------
+                0.00    0.00       6/14          std::thread::_State_impl<std::thread::_Invoker<std::tuple<main::{lambda(int)#2}, unsigned int> > >::_M_run() [1]
+                0.00    0.00       8/14          try_insert(Sphere&&) [3]
+[17]     0.0    0.00    0.00      14         set_cpu_affinity(int) [17]
+-----------------------------------------------
+                0.00    0.00      13/13          try_insert(Sphere&&) [3]
+[18]     0.0    0.00    0.00      13         void std::vector<Sphere, std::allocator<Sphere> >::_M_realloc_insert<Sphere>(__gnu_cxx::__normal_iterator<Sphere*, std::vector<Sphere, std::allocator<Sphere> > >, Sphere&&) [18]
+-----------------------------------------------
+                0.00    0.00       2/2           main [13]
+[19]     0.0    0.00    0.00       2         std::vector<std::thread, std::allocator<std::thread> >::~vector() [19]
+-----------------------------------------------
+                0.00    0.00       1/1           main [13]
+[20]     0.0    0.00    0.00       1         std::vector<Vec3, std::allocator<Vec3> >::~vector() [20]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2024 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+   [5] hsv_to_rgb(double, double, double) [1] std::thread::_State_impl<std::thread::_Invoker<std::tuple<main::{lambda(int)#2}, unsigned int> > >::_M_run() (std_thread.h) [4] double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul> >(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&)
+   [3] try_insert(Sphere&&)   [20] std::vector<Vec3, std::allocator<Vec3> >::~vector() [15] void std::lock<std::mutex, std::mutex>(std::mutex&, std::mutex&)
+  [17] set_cpu_affinity(int)  [18] void std::vector<Sphere, std::allocator<Sphere> >::_M_realloc_insert<Sphere>(__gnu_cxx::__normal_iterator<Sphere*, std::vector<Sphere, std::allocator<Sphere> > >, Sphere&&) [7] _init
+   [2] ray_color(Ray const&, World const&) [19] std::vector<std::thread, std::allocator<std::thread> >::~vector()
+   [6] std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>::_M_gen_rand() [16] void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&)
